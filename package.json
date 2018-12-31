@@ -1,0 +1,16 @@
+{
+  "name": "nls-parcel-threejs",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "APACHE-2.0",
+  "scripts": {
+    "start": "parcel watch src/index.ts",
+    "build": "parcel build src/index.ts"
+  },
+  "devDependencies": {
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "three-full": "^11.3.2"
+  }
+}
