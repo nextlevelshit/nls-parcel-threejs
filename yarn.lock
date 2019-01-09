@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-three-full@^11.3.2:
-  version "11.3.2"
-  resolved "https://registry.yarnpkg.com/three-full/-/three-full-11.3.2.tgz#9484fe246caf70875ab9941d962b4af944b28b5f"
-  integrity sha512-0qv9kLe2bp1ksV3mgjyzWtIBO//U19+RzoyAuSGkSKKYF0M3zxAwWU5L6rRhVj6L/GGlbUb4EHMa8QhcW8/Rtw==
+three@^0.100.0:
+  version "0.100.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.100.0.tgz#262841c0b7d88ebd62af73f28d9f578963b3aa00"
+  integrity sha512-/lN2rdE1OqIwJr4/HcSaOisiCY0uVA0sqPpbCG5nil2uICEdS0LfGwSVYTtZDsIpR76r3++h5H3Hzg5D+SJBRQ==
 
 typescript@^3.2.2:
   version "3.2.2"
