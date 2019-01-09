@@ -5,7 +5,6 @@ export class AppComponent {
   private scene: any;
   private camera: any;
   private renderer: any;
-
   public objects: any = [];
 
   constructor() {
@@ -28,7 +27,7 @@ export class AppComponent {
     this.renderer = new WebGLRenderer({antialias: true});
     this.camera = new PerspectiveCamera(env.fov, aspectRatio, env.near, env.far);
 
-    this.camera.position.z = 20;
+    this.camera.position.z = env.cameraPosition.z;
     this.scene.background = new Color(env.backgroundColor);
   
     document.body.appendChild(this.renderer.domElement);
