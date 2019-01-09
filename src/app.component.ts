@@ -48,6 +48,5 @@ export class AppComponent {
   public add(object) {
     this.objects.push(object);
     this.scene.add(object.mesh);
-    console.log(this.scene);
   }
 }
