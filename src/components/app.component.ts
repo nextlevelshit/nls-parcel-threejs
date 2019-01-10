@@ -1,5 +1,5 @@
 import { Scene, WebGLRenderer, PerspectiveCamera, Color } from 'three';
-import { env } from './config/environment';
+import { env } from './../config/environment';
 
 export class AppComponent {
   private scene: any;
