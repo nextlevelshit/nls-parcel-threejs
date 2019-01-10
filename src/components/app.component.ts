@@ -12,6 +12,11 @@ export class AppComponent {
     this.createScene();
   }
 
+  /**
+   * Remove existing canvas, if already existing.
+   * 
+   * @return void
+   */
   private clearScene(): void {
     const canvas = document.body.querySelector('canvas');
 
@@ -20,6 +25,13 @@ export class AppComponent {
     }
   }
 
+  /** 
+   * Create a full with and full height scene based on window size.
+   * Initiate an empty scene, renderer and set camera.
+   * Finally append the rendered DOM element to document.
+   * 
+   * @return void
+   */
   private createScene(): void {
     const aspectRatio = window.innerWidth / window.innerHeight;
 
@@ -35,6 +47,12 @@ export class AppComponent {
     this.render();
   }
 
+  /**
+   * Request Animation Frames on every update and
+   * re-render scene with updated object list.
+   * 
+   * @return void
+   */
   private render(): void {
     requestAnimationFrame(() => {
       this.render();
@@ -44,7 +62,13 @@ export class AppComponent {
     this.renderer.render(this.scene, this.camera);
   }
 
-  public add(object) {
+  /**
+   * Add object to scene.
+   * 
+   * @param object 
+   * @return void
+   */
+  public add(object): void {
     this.objects.push(object);
     this.scene.add(object.mesh);
   }
