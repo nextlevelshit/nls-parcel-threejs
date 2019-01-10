@@ -4,12 +4,13 @@ export class SplineComponent {
   private curve: any;
   private geometry: any;
   private material: any;
-  private pointList: any = [[-10, 0], [-5, 5], [0, 0], [5, -5], [10, 0]];
+  private pointList: any;
   private shift: number = 0;
   private max: number = 300;
   private _mesh: any;
 
-  constructor() {
+  constructor(pointList) {
+    this.pointList = pointList;
     this.render();
   }
 
@@ -26,7 +27,8 @@ export class SplineComponent {
       this.vectorList
     );
     this.material = new LineBasicMaterial({
-      color: 0x5CC0C7
+      color: 0x5CC0C7,
+      linewidth: 2
     });
 
     this._mesh = new Line(this.geometry, this.material);
