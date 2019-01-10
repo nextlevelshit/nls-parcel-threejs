@@ -10,7 +10,7 @@
 ### Rquirements
 
 - [Install **Node.js** via package manager](//nodejs.org/en/download/package-manager/)
-- [Install **Angular** via npm](//parceljs.org/getting_started.html)
+- [Install **PARCEL** via npm](//parceljs.org/getting_started.html)
 
 ### Usefull Scripts
 
