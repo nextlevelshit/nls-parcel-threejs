@@ -29,14 +29,14 @@ Run `npm run start` for a dev server. Browser opens and navigates automatically 
 
 *Informations about the motivation, authors and license*
 
-## Author
+### Author
 
 The author of this software is [Michael Czechowski](//dailysh.it), web developer based in Stuttgart and Berlin, Germany.
-## Contributors
+### Contributors
 
 - Michael Czechowski (<mail@dailysh.it>)
 
-## License
+### License
 
 Copyright (C) 2019 Michael Czechowski
 
