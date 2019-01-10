@@ -1,4 +1,5 @@
 import { Geometry, BoxGeometry, BufferGeometry, PointsMaterial, Vector2, Vector3, Mesh, AdditiveBlending, Points } from 'three';
+import { env } from './../config/environment';
 
 export class PointsComponent {
   private geometry: any;
@@ -7,9 +8,14 @@ export class PointsComponent {
   private color: any;
   private _mesh: any;
 
-  constructor(point, color?) {
+  /**
+   * 
+   * @param point THREE.Vector2
+   * @param color number
+   */
+  constructor(point, color?: number) {
     this.point = point;
-    this.color = color ? color : 0xF8485E;
+    this.color = color ? color : env.defaultColor;
     this.render();
   }
 

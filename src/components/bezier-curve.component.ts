@@ -1,15 +1,14 @@
-import { Geometry, BoxGeometry, BufferGeometry, SplineCurve, LineBasicMaterial, Vector2, MeshBasicMaterial, Mesh, Line, CatmullRomCurve3 } from 'three';
+import { Geometry, BoxGeometry, BufferGeometry, LineBasicMaterial, Vector2, MeshBasicMaterial, Mesh, Line, CubicBezierCurve } from 'three';
 import { ISplineOptions } from './../interfaces/spline-options.interface';
 import { env } from './../config/environment'
 
-export class SplineComponent {
+export class BezierCurveComponent {
   private curve: any;
   private geometry: any;
   private material: any;
   private pointList: any;
   private shift: number = 0;
   private max: number = 300;
-  private animate: boolean;
   private color: number;
   private _mesh: any;
 
@@ -24,9 +23,6 @@ export class SplineComponent {
     this.color = options.color 
       ? options.color 
       : env.defaultColor;
-    this.animate = options.animate 
-      ? options.animate 
-      : false;
     this.render();
   }
 
@@ -38,7 +34,7 @@ export class SplineComponent {
    * @return void
    */
   private render(): void {
-    this.curve = new SplineCurve(this.matrix);
+    this.curve = new CubicBezierCurve(...this.matrix);
     this.geometry = new BufferGeometry().setFromPoints(
       this.vectorList
     );
@@ -46,10 +42,6 @@ export class SplineComponent {
       color: this.color,
       linewidth: env.defaultLineWidth
     });
-
-    if (this.animate) {
-      this.geometry.verticesNeedUpdate = true;
-    }
 
     this._mesh = new Line(this.geometry, this.material);
   }
@@ -90,23 +82,7 @@ export class SplineComponent {
     );
   }
 
-  /**
-   * Increment `this.shift` for animation and update
-   * `this.geometry` with shifted vector list and 
-   * finally update the rendered object `this._mesh`.
-   * 
-   * @return void
-   */
   public update(): void {
-    if (!this.animate) return;
-    
-    this.shift++;
-    this.geometry = new BufferGeometry().setFromPoints(
-      this.vectorList.map((vector, i) => {
-        return this.shiftVector(vector, i);
-      })
-    );
-    this._mesh.geometry = this.geometry;
   }
 
   /**

@@ -1,16 +1,18 @@
 import { Geometry, BoxGeometry, BufferGeometry, SplineCurve, LineBasicMaterial, Vector2, MeshBasicMaterial, Mesh, Line, CatmullRomCurve3 } from 'three';
-import { ISplineOptions } from './../interfaces/spline-options.interface';
+import { ICurveOptions } from './../interfaces/curve-options.interface';
 import { env } from './../config/environment'
 
-export class SplineComponent {
+export class CurveComponent {
   private curve: any;
   private geometry: any;
   private material: any;
   private pointList: any;
   private shift: number = 0;
   private max: number = 300;
-  private animate: boolean;
   private color: number;
+  private curveType: any;
+  private tension: number;
+  private animate: boolean;
   private _mesh: any;
 
   /**
@@ -19,11 +21,17 @@ export class SplineComponent {
    * @param color number
    * @param curveType string
    */
-  constructor(pointList: any, options?: ISplineOptions) {
+  constructor(pointList: any, options?: ICurveOptions) {
     this.pointList = pointList;
     this.color = options.color 
       ? options.color 
       : env.defaultColor;
+    this.curveType = options.curveType 
+      ? options.curveType 
+      : env.defaultCurveType;
+    this.tension = options.tension 
+      ? options.tension 
+      : env.defaultCurveTension;
     this.animate = options.animate 
       ? options.animate 
       : false;
@@ -38,7 +46,9 @@ export class SplineComponent {
    * @return void
    */
   private render(): void {
-    this.curve = new SplineCurve(this.matrix);
+    this.curve = new CatmullRomCurve3(this.matrix);
+    this.curve.curveType = this.curveType;
+    this.curve.tension = this.tension;
     this.geometry = new BufferGeometry().setFromPoints(
       this.vectorList
     );
