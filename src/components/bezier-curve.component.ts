@@ -90,7 +90,6 @@ export class BezierCurveComponent {
    * 
    * @return THREE.Line
    */
-
   public get mesh(): any {
     return this._mesh;
   }

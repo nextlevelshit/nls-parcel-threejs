@@ -109,7 +109,7 @@ export class CurveComponent {
    */
   public update(): void {
     if (!this.animate) return;
-    
+
     this.shift++;
     this.geometry = new BufferGeometry().setFromPoints(
       this.vectorList.map((vector, i) => {
@@ -124,7 +124,6 @@ export class CurveComponent {
    * 
    * @return THREE.Line
    */
-
   public get mesh(): any {
     return this._mesh;
   }
